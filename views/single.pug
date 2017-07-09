@@ -1,0 +1,27 @@
+html
+    include includes/header.pug
+    body
+        include includes/navbar.pug
+        .container
+            each item in result
+                - var newmagnet = item.magnet + '&dn=' + item.name + '&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969'
+                h2= item.name
+                - var timestring = new Date(item.fetchedAt);
+                small= 'Last Seen: ' + timestring
+                br
+                small= 'Infohash: ' + item.infohash
+                br
+                br
+                a(href=newmagnet)= 'Magnet Link'
+
+                br
+                br
+                h3 Data
+                pre= item
+
+            br
+            a(href='/') Back
+
+            br
+            br
+            include includes/footer.pug

@@ -1,0 +1,17 @@
+html
+    include includes/header.pug
+    body
+        include includes/navbar.pug
+        .container
+            each item in results
+                - var newmagnet = item.magnet + '&dn=' + item.name + '&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969'
+                ul.list-group
+                    li.list-group-item
+                        a(href='/infohash?hash=' + item.infohash)= item.name
+                        p= item.infohash
+            br
+            a(href='/') Back
+
+            br
+            br
+            include includes/footer.pug
